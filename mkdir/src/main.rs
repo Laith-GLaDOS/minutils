@@ -15,6 +15,8 @@ fn main() {
                 }
             }
         }
+    }
+    for arg in env::args().skip(2) {
         match fs::create_dir(&arg) {
             Ok(_) => {
                 if verbose {
