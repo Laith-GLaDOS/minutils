@@ -1,5 +1,4 @@
 use std::fs::File;
-use std::path::Path;
 use std::env;
 
 fn main() {
@@ -9,11 +8,12 @@ fn main() {
             Err(e) => {
                 if e.to_string().contains("21") { // check if the error is OS Error 21 (is a directory)
                     eprintln!("touch: cannot make folders; use mkdir instead");
+                } else if e.kind() == std::io::ErrorKind::PermissionDenied {
+                    eprintln!("touch: cannot create file '{}': Permission denied", &arg);
+                } else {
+                    eprintln!("touch: cannot create file '{}': No space left on device", &arg);
                 }
             }
-        }
-        if !Path::new(&arg).exists() { // check if the file was successfully touched or not
-            eprintln!("touch: cannot touch '{}': Permission denied", arg); // if not, print error
         }
     }
 }
