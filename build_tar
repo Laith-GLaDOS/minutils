@@ -1,0 +1,21 @@
+cd mkdir
+cargo build --release
+mv target/release/mkdir ../
+cd ../
+./mkdir usr usr/bin
+mv mkdir usr/bin/
+cd cat
+cargo build --release
+mv target/release/cat ../usr/bin/
+cd ../rm
+cargo build --release
+mv target/release/rm ../usr/bin/
+cd ../touch
+cargo build --release
+mv target/release/touch ../usr/bin/
+cd ../yes
+cargo build --release
+mv target/release/yes ../usr/bin/
+cd ../
+tar cvf minutils-$1-$2.tar.gz usr
+./usr/bin/rm -rf usr
