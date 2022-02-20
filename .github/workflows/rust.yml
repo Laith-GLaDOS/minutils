@@ -1,0 +1,14 @@
+name: Rust
+on:
+  workflow_dispatch:
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: chmod
+       run: chmod 755 ./build_tar
+    - name: try to build
+       run: ./build_tar
