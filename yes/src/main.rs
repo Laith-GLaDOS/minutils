@@ -14,9 +14,7 @@ fn main() {
             println!();
         }
     }
-    else {
-        loop {
-            println!("y");
-        }
+    loop {
+        println!("y");
     }
 }
