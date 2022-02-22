@@ -13,7 +13,7 @@ fn main() {
                 } else if element == 'v' {
                     verbose = true;
                 } else {
-                    eprintln!("Unknown option: {}", arg);
+                    eprintln!("mkdir: invalid option -- {}\nTry mkdir -h for more information.", arg);
                     return;
                 }
             }

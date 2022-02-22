@@ -20,7 +20,8 @@ fn main() {
                     println!("rm [-rvfh] <files>");
                     return;
                 } else {
-                    panic!("rm: invalid option -- '{}'\nTry 'rm -h' for more information.", element);
+                    eprintln!("rm: invalid option -- '{}'\nTry 'rm -h' for more information.", element);
+                    return;
                 }
             }
         } else {
