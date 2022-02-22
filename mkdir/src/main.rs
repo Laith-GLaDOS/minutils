@@ -12,6 +12,9 @@ fn main() {
                     return;
                 } else if element == 'v' {
                     verbose = true;
+                } else {
+                    eprintln!("Unknown option: {}", arg);
+                    return;
                 }
             }
         }
