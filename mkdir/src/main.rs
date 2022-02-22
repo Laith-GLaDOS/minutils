@@ -20,9 +20,7 @@ fn main() {
         for arg in env::args().skip(2) {
             match fs::create_dir(&arg) {
                 Ok(_) => {
-                    if verbose {
-                        println!("mkdir: created directory '{}'", &arg);
-                    }
+                    println!("mkdir: created directory '{}'", &arg);
                 },
                 Err(e) => {
                     if e.kind() == ErrorKind::AlreadyExists {
@@ -39,11 +37,7 @@ fn main() {
     else { // only skip mkdir bin name
         for arg in env::args().skip(1) {
             match fs::create_dir(&arg) {
-                Ok(_) => {
-                    if verbose {
-                        println!("mkdir: created directory '{}'", &arg);
-                    }
-                },
+                Ok(_) => {},
                 Err(e) => {
                     if e.kind() == ErrorKind::AlreadyExists {
                         println!("mkdir: cannot create directory '{}': File exists", &arg);
